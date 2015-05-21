@@ -1,0 +1,22 @@
+<html>
+<head></head>
+<title></title>
+<body>
+	{% for item in list %}
+		<p>{{item.device_ip}}</p>
+		{% for reading in item.readings %}
+			<p>{{reading.Power}}</p>
+		{%endfor%}
+	{% endfor %}
+	<button id="13" class="led">Toggle Pin</button>
+	<script src="\static\js\jquery-2.1.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".led").click(function(){
+				var p = $(this).attr('id');
+				$.get("http://192.168.0.100:80", {pin:p}); // execute get request
+			});
+		});
+	</script>
+</body>
+</html>
