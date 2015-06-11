@@ -41,11 +41,13 @@ def func():
 def viewall():
 	#list = models.Device.query.all()
 	#return render_template('index.html',list = list)
-	return jsonify(json_list=[i.serialize for i in models.Device.query.all()])
+	#return jsonify(json_list=[i.serialize for i in models.Device.query.all()])
+	return jsonify(list = [i.serialize for i in models.Reading.query.all()])
 	
 @app.route('/chart')
 def chart():
-	readings = models.Reading.query.all()
-	for i in range(len(readings)):
-		readings[i] = readings[i].as_dict()
-	return render_template('live-server.html',list = readings)
+	#readings = models.Reading.query.all()
+	#for i in range(len(readings)):
+	#	readings[i] = readings[i].as_dict()
+	#return render_template('live-server.html',list = readings)
+	return render_template('live-server.html')

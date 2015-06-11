@@ -32,27 +32,25 @@
 		/**
 		 * Request data from the server, add it to the graph and set a timeout to request again
 		 */
-		(function requestData() {
+		 		$(document).ready(function() {
+    setInterval("requestData()",500);
+});
+		function requestData() {
 			var series;
 			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.open("GET","chart",true);
+			xmlhttp.open("GET","/list",true);
+			xmlhttp.responseType = 'json';
 			xmlhttp.send();
 			xmlhttp.onreadystatechange=function() {
-			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-				{
-				var mylist = xmlhttp.responseText;
-				console.log(mylist);
-				graph({{list|tojson}});
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+					var mylist = (xmlhttp.response);
+					graph(mylist.list);
 				}
-			  }
+			}
 			
-		}());
-		
-		setTimeout(function(){
-		location.reload();
-		},1500);
-		
+		};
 		function graph(list) {
+			console.log(list.length);
 			chart = new Highcharts.Chart({
 				chart: {
 					renderTo: 'container',
@@ -77,15 +75,13 @@
 				series: [{
 					name: 'Time',
 					data: (function () {
-                    // generate an array of random data
                     var data = [],
                         time = (new Date()).getTime(),
                         i;
-
                     for (i = 0; i < list.length; i += 1) {
                         data.push({
                             x: time + i * 1000,
-                            y: list[i].Power
+                            y: list[i].power
                         });
                     }
                     return data;
@@ -94,8 +90,7 @@
 			});		
 		
 		}
-		
-		//$(document).ready(graph);
+
 		</script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -130,7 +125,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="\static\js\jquery\1.11.2\jquery.min.js"></script>
+    <script src="\static\js\jquery-1.11.2.js"></script>
     <script src="\static\js\bootstrap.min.js"></script>
 	<div id="container" style="width: 800px; height: 400px; margin-top: 200 auto"></div>
 	<button id="13" class="led">Toggle Pin</button>
