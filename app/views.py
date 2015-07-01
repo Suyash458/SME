@@ -1,14 +1,5 @@
-from flask import Flask,render_template,session,request,jsonify
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.socketio import SocketIO,emit
-from flask.ext.mongoengine import MongoEngine
-
-app = Flask(__name__)
-app.config.from_object('config')
-socketio = SocketIO(app)
-db = SQLAlchemy(app)
-db.init_app(app)
-from app import models
+from app import app,models
+from flask import render_template,jsonify
 
 @app.route('/')
 def index():
@@ -38,10 +29,7 @@ def func():
 	return "Added device."
 	
 @app.route('/list',methods=['GET','POST'])
-def viewall():
-	#list = models.Device.query.all()
-	#return render_template('index.html',list = list)
-	#return jsonify(json_list=[i.serialize for i in models.Device.query.all()])
+def list():
 	return jsonify(list = [i.serialize for i in models.Reading.query.all()])
 	
 @app.route('/chart')

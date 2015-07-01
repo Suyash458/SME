@@ -1,4 +1,4 @@
-from main import db
+from app import db
 import datetime
 
 def dump_datetime(value):

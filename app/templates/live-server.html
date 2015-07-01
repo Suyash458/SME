@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Energy Monitor Home</title>
 
     <!-- Bootstrap core CSS -->
     <link href="\static\css\bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Highcharts Example</title>
+
 		
 		
 		<!-- 1. Add these JavaScript inclusions in the head of your page -->
@@ -25,6 +25,16 @@
     <script src="\static\js\jquery-2.1.3.min.js"></script>
 		<script  src="\static\js\highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script> 
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="static/css/normalize.css">
+  <link rel="stylesheet" href="static/css/skeleton.css">
+
+  <link rel="stylesheet" href="css/github-prettify-theme.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 		
 		
 		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
@@ -37,34 +47,26 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">Smart Energy Monitor</a>
         </div>
 
       </div>
     </nav>
-
-
-
-<br></br>
-<br>
-</br>
-<br></br>
+    <br></br>
+    <br></br>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-	<div id="container" style="width: 800px; height: 400px; margin-top: 200 auto"></div>
-	<button id="13" class="led">Toggle Pin</button>
-
+    <div class = "five columns">
+     <div id="container" style="width: 100%; height: 50%;"> </div>  
+        <button id="13" class="led" style = "margin-left:50px">Toggle Pin</button>
+     </div>
+         <div class = "six columns">
+           This live energy monitoring system plots real time power comsumption using an Arduino board, an ESP8266 and some additional circuitry.
+         </div>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".led").click(function(){
