@@ -29,6 +29,7 @@ function graph(list) {
 			events: {
 				load: function(){
 					var series = this.series[0];
+					var index = 10;
 					setInterval(function(){
 						var xmlhttp = new XMLHttpRequest();
 						var list;
@@ -39,9 +40,20 @@ function graph(list) {
 							if (xmlhttp.readyState==4 && xmlhttp.status==200){
 								mylist = (xmlhttp.response);
 								list = mylist.list;
+								var sum = 0;
+								for(var i = 0; i<list.length ; i++)
+								{
+									sum += list[i].power;
+								}
+								document.getElementById("Average").innerHTML = "<span>Average Power = " + Math.round((sum/list.length)*100)/100 + " watts</span>";
+								console.log(sum)
 								var x = (new Date()).getTime();
-								var y = list[20].power;
+								if(index < list.length)
+									var y = list[index].power;
+								else
+									var y = list[list.length - 1].power;
 								series.addPoint([x,y],true,true);
+								index += 1;
 							}
 						}
 					},2000);
