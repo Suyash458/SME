@@ -2,7 +2,7 @@ import socket
 import sys
 import thread
 from thread import *
-from app.main import db,models
+from app import db,models
  
 HOST = '0.0.0.0'   # Symbolic name meaning all available interfaces
 PORT = 8000 # Arbitrary non-privileged port
@@ -88,7 +88,11 @@ def clientthread(conn,addr):
      
     #came out of loop
     conn.close()
+
+def Echo(addr,message):
+	s.sendto(message,address)
 	
+		
 serverID = start_new_thread(serverthread,(s,))
 
 #now keep talking with the client

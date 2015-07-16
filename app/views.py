@@ -1,5 +1,6 @@
 from app import app,models
 from flask import render_template,jsonify
+from server import Echo
 
 @app.route('/')
 def index():
@@ -39,3 +40,5 @@ def chart():
 	#	readings[i] = readings[i].as_dict()
 	#return render_template('live-server.html',list = readings)
 	return render_template('live-server.html')
+	
+@app.route('/echo')
