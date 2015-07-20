@@ -11,7 +11,8 @@
     <title>Energy Monitor Home</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="\static\css\bootstrap.min.css" rel="stylesheet">
+
+    <link href = "{{url_for('static',filename = 'css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -20,11 +21,11 @@
 		
 		
 		<!-- 1. Add these JavaScript inclusions in the head of your page -->
-    <script src="\static\js\jquery-1.11.2.js"></script>
-    <script src="\static\js\bootstrap.min.js"></script>
-    <script src="\static\js\jquery-2.1.3.min.js"></script>
-		<script  src="\static\js\highcharts.js"></script>
-    <script src="static\js\webtcp-0.0.1.min.js"></script>
+    <script src="/static/js/jquery-1.11.2.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery-2.1.3.min.js"></script>
+		<script  src="/static/js/highcharts.js"></script>
+    <script src="static/js/webtcp-0.0.1.min.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script> 
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
@@ -33,7 +34,6 @@
   <link rel="stylesheet" href="static/css/normalize.css">
   <link rel="stylesheet" href="static/css/skeleton.css">
 
-  <link rel="stylesheet" href="css/github-prettify-theme.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 		
@@ -83,7 +83,7 @@
     var socket = net.createSocket("192.168.0.101", 80, options);
     socket.write("pin:13"); 
 	</script>
-  <script type="text/javascript" src="\static\js\graph.js"></script>
+  <script type="text/javascript" src="/static/js/graph.js"></script>
   </body>
 
 </html>

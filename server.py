@@ -88,9 +88,6 @@ def clientthread(conn,addr):
      
     #came out of loop
     conn.close()
-
-def Echo(addr,message):
-	s.sendto(message,address)
 	
 		
 serverID = start_new_thread(serverthread,(s,))

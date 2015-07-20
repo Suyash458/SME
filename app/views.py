@@ -1,6 +1,6 @@
-from app import app,models
+from app import app,models,api
 from flask import render_template,jsonify
-from server import Echo
+from APIs import ReadingList
 
 @app.route('/')
 def index():
@@ -29,16 +29,8 @@ def func():
 			db.session.commit()
 	return "Added device."
 	
-@app.route('/list',methods=['GET','POST'])
-def list():
-	return jsonify(list = [i.serialize for i in models.Reading.query.all()])
-	
 @app.route('/chart')
 def chart():
-	#readings = models.Reading.query.all()
-	#for i in range(len(readings)):
-	#	readings[i] = readings[i].as_dict()
-	#return render_template('live-server.html',list = readings)
 	return render_template('live-server.html')
 	
-@app.route('/echo')
+api.add_resource(ReadingList,'/list')
